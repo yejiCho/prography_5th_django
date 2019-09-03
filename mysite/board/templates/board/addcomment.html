@@ -1,0 +1,20 @@
+{% extends "board/base.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h1> 새로운 댓글 </h1>
+<br>
+<br>
+
+    <div class="comment_form">
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-info" type="submit" class="save btn btn-default">저장하기</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock content %}

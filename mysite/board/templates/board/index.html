@@ -1,0 +1,33 @@
+{% extends "board/base.html" %}
+{% load static %}
+
+{%block content %}
+
+<div class="container">
+    <h1>Board</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" width="25%">순서</th>
+                <th scope="col">제목</th>
+                <th scope="col" width="25%">글쓴이</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts.all %}
+            <tr>
+                <td>{{post.id}}</td>    <!--글 번호는 django에서 자동 생성됨-->
+                <td>
+                    <a href="{% url 'detail' post.pk %}">
+                        {{ post.title|truncatewords:20 }} <!--20개의 단어만 보여주고 줄바꿈 문자모두 없애기-->
+                    </a>
+                </td>
+                <td>{{ post.author }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

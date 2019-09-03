@@ -1,0 +1,19 @@
+{% extends "board/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>
+        새글쓰기
+    </h1>
+    <br>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+    <input type="submit" value="등록하기" class="btn btn-info">
+    </form>
+</div>
+
+{% endblock content %}

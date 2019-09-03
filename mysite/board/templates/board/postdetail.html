@@ -1,0 +1,62 @@
+{% extends "board/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/postdetail.css' %}">
+{% block content %}
+
+<div class="container">
+    <h1> 자세히 보기</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td col="col">제목</td>
+                <td>{{post.title}}</td>
+            </tr>
+            <tr>
+                <td col="col">글쓴이</td>
+                <td>{{post.author}}</td>
+            </tr>
+            <tr>
+                <td col="col">날짜</td>
+                <td>{{post.date}}</td>
+            </tr>
+                <td col="col">내용</td>
+                <td style='height: 10rem;'>{{post.content}}</td>
+        </thead>
+    </table>
+
+</div>
+<!-- comment create button -->
+<a href="{% url 'addcomment' pk=post.pk %}">
+    <input type="button" class="btn btn-info" name="leave_comment" value="댓글쓰기">
+</a>
+<!-- comments display from users -->
+{% for comment in post.comments.all %}
+
+<table class="table" style="text-align: left; table-layout: fixed;">
+    <tbody>
+        <tr>
+            <td width="20%">{{ comment.c_author }}</td><td> {{ comment.c_content }}</td>
+        </tr>     
+    </tbody>
+</table>
+{% empty %} <p> 댓글이 아직 없습니다. </p>
+
+{% endfor %}
+
+<div class="l_buttons">
+    <a href="{% url 'home' %}">
+        <input class="btn btn-info" type="button" value="목록으로">
+    </a>
+    <!-- post_update -->
+    <a href="{% url 'update' post.pk %}">
+        <input class="btn btn-info" type="button" value="수정하기">
+    </a>
+
+    <!-- post_delete -->
+    <a href="{% url 'delete' post.pk %}">
+        <input class="btn btn-info" type="button" value="삭제하기">
+    </a>
+</div>
+<br>
+{% endblock content %}
