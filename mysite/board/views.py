@@ -11,10 +11,10 @@ def home(request):
 
 def post_create(request):
 
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
+    if request.method == 'POST':        #POST 방식이면, 데이터가 담긴 제출된 폼으로 간주
+        form = PostForm(request.POST)   #request에 담긴 데이터로, 클래스 폼 생성
+        if form.is_valid():             #폼에 담긴 데이터가 유효한지 체크
+            form.save()                 
             return  redirect('home')
     else:
         form = PostForm()
@@ -22,7 +22,7 @@ def post_create(request):
 
 def post_detail(request, pk):
 
-    post = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(Post, pk=pk)           #장고 단축함수 /함수를 임포트 하도록 
 
     return render(request,'board/postdetail.html',{'post':post})
 
