@@ -56,4 +56,4 @@ def comments(request, pk):
             return redirect('detail', pk=pk)
     else:
         form = CommentForm()
-    return render(request, 'board/addcomment.html', {'form': form})
+    return render(request, 'board/comment.html', {'form': form})

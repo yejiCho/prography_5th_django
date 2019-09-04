@@ -1,3 +1,8 @@
+# 웹사이트 개발시 사용자로부터 입력을 받기 위해서 폼을 사용
+# 폼데이터를 어디로 보내는지 지정해주는 action 속성 과 어떤 HTTP 메소드로 보낼지 지정해주는 method속성 설정
+#
+#
+
 from django import forms
 from .models import Post, Comment
 
