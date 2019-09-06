@@ -12,6 +12,7 @@
  
  
  ##선택사항
- - 서버 배포(실패 - 원인파악중) -> choyeji.pythonanywhere.com
+ - 서버 배포 -> http://choyeji.pythonanywhere.com/
+ (실패 원인 데이터베이스 문제)
  - 게시물 리스트 조회 화면 꾸미기(성공)
  - 게시물 댓글 기능(성공)
