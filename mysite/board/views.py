@@ -17,7 +17,7 @@ def post_create(request):
             form.save()                 
             return  redirect('home')
     else:
-        form = PostForm()
+        form = PostForm()               #새 폼을 추가하기 위해 PostForm() 함수 호출
     return render(request, 'board/postcreate.html',{'form':form})
 
 def post_detail(request, pk):

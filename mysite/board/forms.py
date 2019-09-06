@@ -6,9 +6,10 @@
 from django import forms
 from .models import Post, Comment
 
+# form클래스 생성
 class PostForm(forms.ModelForm):
 
-    class Meta:
+    class Meta:             # 폼을 만들기 위해 어떤 model을 써야 하는지 
         
         model = Post
         fields = ['title','author','content'] 
@@ -21,4 +22,4 @@ class CommentForm(forms.ModelForm):
         labels = {
             'c_author':'글쓴이',
             'c_content':'내용',
-                    }
+                    }                # <label> elements 
