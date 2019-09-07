@@ -9,7 +9,7 @@ class Post(models.Model):       #게시글
     date = models.DateTimeField(auto_now_add=True)  #시간 자동으로 받아오기
     content = models.TextField(default='')  #default='' 공백
 
-    def __str__(self):
+    def __str__(self):      #사용자가 입력한대로 string으로 불러오기
         return self.title
 
 class Comment(models.Model):        #댓글

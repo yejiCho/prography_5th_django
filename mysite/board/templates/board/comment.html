@@ -11,6 +11,7 @@
         <form method="POST" class="post-form">
             <!-- POST 방식의 <form>을 사용하는 탬플릿 코드에서는 CSRF공격을 방지하기 위해
                 {%csrf_token %}사용
+            폼데이터를 어디로 보내는지 지정해주는 action 속성 과 어떤 HTTP 메소드로 보낼지 지정해주는 method속성 설정
              -->
             {% csrf_token %}
             {{ form.as_p }}
