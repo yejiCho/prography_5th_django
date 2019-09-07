@@ -23,3 +23,4 @@ class CommentForm(forms.ModelForm):
             'c_author':'글쓴이',
             'c_content':'내용',
                     }                # <label> elements 
+                                     #필드가 양식에 표시될때 사용

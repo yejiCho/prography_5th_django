@@ -15,10 +15,10 @@ def post_create(request):
     if request.method == 'POST':        #POST 방식이면, 데이터가 담긴 제출된 폼으로 간주
         form = PostForm(request.POST)   #request에 담긴 데이터로, 클래스 폼 생성
         if form.is_valid():             #폼에 담긴 데이터가 유효한지 체크
-            form.save()                #form에 저장  
+            form.save()                 #form에 저장  
             return  redirect('home')    #url = 'home'으로 되돌아가기
     else:
-        form = PostForm()               #새 폼을 추가하기 위해 PostForm() 함수 호출
+        form = PostForm()               #새 폼을 추가하기 위해 PostForm() 함수 호출 /
     return render(request, 'board/postcreate.html',{'form':form})
 
 def post_detail(request, pk):           #pk :게시물 고유번호
@@ -51,8 +51,8 @@ def comments(request, pk):                  #댓글기능
         form = CommentForm(request.POST)
 
         if form.is_valid():
-            comment = form.save(commit=False) #넘겨진 데이터를 바로 Post모델에 저장하지 말라 
-            comment.post = post             #작성자 추가한 다음 저장
+            comment = form.save(commit=False)    #넘겨진 데이터를 바로 Post모델에 저장하지 말라 
+            comment.post = post                  #작성자 추가한 다음 저장
             comment.save()
             return redirect('detail', pk=pk)
     else:
